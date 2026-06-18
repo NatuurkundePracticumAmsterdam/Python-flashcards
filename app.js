@@ -15,23 +15,20 @@ let currentCategory = null;
 let currentIndex = 0;
 let showingFront = true;
 
-Object.keys(FLASHCARDS).forEach(category => {
+Object.keys(FLASHCARDS).forEach(cat => {
     const li = document.createElement("li");
+    li.textContent = cat;
 
-    li.textContent = category;
-
-    li.onclick = () => openCategory(category);
-
+    li.onclick = () => openCategory(cat);
     categoryList.appendChild(li);
 });
 
-function openCategory(category) {
-
-    currentCategory = category;
+function openCategory(cat) {
+    currentCategory = cat;
     currentIndex = 0;
     showingFront = true;
 
-    categoryTitle.textContent = category;
+    categoryTitle.textContent = cat;
 
     categoriesView.classList.add("hidden");
     flashcardView.classList.remove("hidden");
@@ -40,65 +37,49 @@ function openCategory(category) {
 }
 
 function renderCard() {
+    const data = FLASHCARDS[currentCategory][currentIndex];
 
-    const flashcard =
-        FLASHCARDS[currentCategory][currentIndex];
+    cardContent.innerHTML = "";
 
     if (showingFront) {
-
-        cardContent.innerHTML =
-            `<h3>${flashcard.front}</h3>`;
-
-    } else {
-
-        cardContent.innerHTML = `
-<pre><code class="language-python">${escapeHtml(
-flashcard.back
-)}</code></pre>
-`;
-
-        hljs.highlightAll();
+        const h3 = document.createElement("h3");
+        h3.textContent = data.front;
+        cardContent.appendChild(h3);
+        return;
     }
+
+    const pre = document.createElement("pre");
+    const code = document.createElement("code");
+
+    code.className = "language-python";
+    code.textContent = data.back;
+
+    pre.appendChild(code);
+    cardContent.appendChild(pre);
+
+    hljs.highlightElement(code);
 }
 
-card.addEventListener("click", () => {
+card.onclick = () => {
     showingFront = !showingFront;
     renderCard();
-});
+};
 
-nextBtn.addEventListener("click", () => {
-
-    const cards = FLASHCARDS[currentCategory];
-
-    currentIndex =
-        (currentIndex + 1) % cards.length;
-
+nextBtn.onclick = () => {
+    const list = FLASHCARDS[currentCategory];
+    currentIndex = (currentIndex + 1) % list.length;
     showingFront = true;
-
     renderCard();
-});
+};
 
-prevBtn.addEventListener("click", () => {
-
-    const cards = FLASHCARDS[currentCategory];
-
-    currentIndex =
-        (currentIndex - 1 + cards.length)
-        % cards.length;
-
+prevBtn.onclick = () => {
+    const list = FLASHCARDS[currentCategory];
+    currentIndex = (currentIndex - 1 + list.length) % list.length;
     showingFront = true;
-
     renderCard();
-});
+};
 
-backBtn.addEventListener("click", () => {
-
+backBtn.onclick = () => {
     flashcardView.classList.add("hidden");
     categoriesView.classList.remove("hidden");
-});
-
-function escapeHtml(text) {
-    const div = document.createElement("div");
-    div.textContent = text;
-    return div.innerHTML;
-}
+};
