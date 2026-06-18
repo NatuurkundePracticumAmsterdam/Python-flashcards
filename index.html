@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Highlight.js theme -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
+</head>
+<body>
+
+<div id="categories-view">
+    <h1>Categories</h1>
+
+    <ul id="category-list"></ul>
+</div>
+
+<div id="flashcard-view" class="hidden">
+
+    <button id="backBtn">← Categories</button>
+
+    <h2 id="categoryTitle"></h2>
+
+    <div id="card" class="card">
+        <div id="cardContent"></div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+    </div>
+
+</div>
+
+<script src="cards.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
