@@ -15,13 +15,95 @@ let currentCategory = null;
 let currentIndex = 0;
 let showingFront = true;
 
-Object.keys(FLASHCARDS).forEach(cat => {
-    const li = document.createElement("li");
-    li.textContent = cat;
+let FLASHCARDS = {};
+loadCards();
 
-    li.onclick = () => openCategory(cat);
-    categoryList.appendChild(li);
-});
+async function loadCards() {
+
+    const response = await fetch("cards.md");
+    const text = await response.text();
+
+    FLASHCARDS = parseCards(text);
+
+    buildCategoryList();
+}
+
+function parseCards(text) {
+
+    const cards = {};
+
+    let currentCategory = null;
+    let currentQuestion = null;
+    let currentAnswer = [];
+
+    const lines = text.split("\n");
+
+    function saveCard() {
+
+        if (
+            currentCategory &&
+            currentQuestion &&
+            currentAnswer.length
+        ) {
+            cards[currentCategory].push({
+                front: currentQuestion,
+                back: currentAnswer.join("\n")
+            });
+        }
+    }
+
+    for (const line of lines) {
+
+        if (line.startsWith("# ")) {
+
+            saveCard();
+
+            currentCategory = line.substring(2).trim();
+
+            cards[currentCategory] = [];
+
+            currentQuestion = null;
+            currentAnswer = [];
+
+            continue;
+        }
+
+        if (line.startsWith("## ")) {
+
+            saveCard();
+
+            currentQuestion = line.substring(3).trim();
+
+            currentAnswer = [];
+
+            continue;
+        }
+
+        if (currentQuestion) {
+            currentAnswer.push(line);
+        }
+    }
+
+    saveCard();
+
+    return cards;
+}
+
+function buildCategoryList() {
+
+    categoryList.innerHTML = "";
+
+    Object.keys(FLASHCARDS).forEach(cat => {
+
+        const li = document.createElement("li");
+
+        li.textContent = cat;
+
+        li.onclick = () => openCategory(cat);
+
+        categoryList.appendChild(li);
+    });
+}
 
 function openCategory(cat) {
     currentCategory = cat;
