@@ -1,5 +1,7 @@
 # print
+
 ## Print het woord "xxx".
+
 
 print("xxx")
 
@@ -12,15 +14,17 @@ print("xxx xxx")
 print(x)
 
 # variabelen
+
 ## Maak een variabele "y" met als waarde "xxx".
 
 y = "xxx"
 
-## Print de zin "xxx xxx" waarbij "xxx" de waarde van de variabele "y" is.
+## Print de zin "xx xxx" waarbij "xxx" de waarde van de variabele "y" is.
 
-print("xxx ", y)
+print("xx ", y)
 
 # input
+
 ## Vraag aan de gebruiker "xxx" sla het antwoord op in de variabele "y".
 
 y = input("xxx")
@@ -38,6 +42,7 @@ of
 y = float(input("xxx"))
 
 # rekenen
+
 ## Gegeven is ```a = 1 en b = 2``` bereken c is a plus b.
 
 c = a + b
@@ -59,6 +64,7 @@ c = a / b
 c = a % b
 
 # if en operators
+
 ## Gegeven is ```a = 1 en b = 2``` controleer of a gelijk is aan b.
 
 if a == b:
@@ -92,6 +98,7 @@ if a == 1 and b == 2:
 if a == 1 or b == 2:
 
 # if, elif, else
+
 ## Gegeven is ```a = 1 en b = 2``` controleer of a gelijk is aan 1 print dan "a is 1", anders als b gelijk is aan 2 print dan "b is 2" anders print dan "anders".
 
 if a == 1:
@@ -102,6 +109,7 @@ else:
     print("anders")
 
 # lijsten
+
 ## Maak een lijst "y" met de waardes "x", "x", en "x".
 
 y = ["x", "x", "x"]
@@ -172,3 +180,64 @@ for i in range(len(lijst))
 for positie, element in enumerate(lijst):
 
 # Matplotlib
+## importeer pyplot van matplotlib als plt
+
+import matplotlib.pyplot as plt
+
+## Gegeven "x" en "y" plot "x" en "y"
+
+plt.plot(x,y)
+plt.show()
+
+## Maak de x-astitel "x"
+
+plt.xlabel("x")
+
+## Maak de y-astitel "y"
+
+plt.ylabel("y")
+
+# Error
+
+## Gegeven ```print("Hello")``` veroorzaak een SyntaxError
+
+print("hello)
+of
+print("hello"
+
+## Gegeven ```lijst = ["a", "b", "c"]``` loop over de elmenten van de lijst en veroorzaak een SyntaxError
+
+lijst = ["a", "b", "c"]
+
+for letter in lijst
+    print(letter)
+
+## Gegeven variabele "y" met als waarde "xxx", print de variabele en veroorzaak een NameError
+
+print(y)
+y = "xxx"
+of
+y = "xxx"
+print(Y)
+of
+y = "xxx"
+pint(y)
+
+## Gegeven ```a = 1 en b = "xxx"``` veroorzaak een TypeError
+
+a = 1
+b = "xxx"
+c = a + b
+
+## Gegeven ```a = ["a", "a", "a"] en b = 3 ``` verzoorzaak een TypeError
+
+a = ["a", "a", "a"]
+b = 3
+
+c = a / b
+
+## Gegeven ```a = 1 en b = input("xxx")``` veroorzaak een TypeError
+
+a = 1
+b = input("xxx")
+c = a + b
