@@ -32,13 +32,17 @@ y = input("xxx")
 ## Gegeven ```y = input("xxx")``` zet het antwoord om in een geheel getal/interger.
 
 y = int(y)
+
 of
+
 y = int(input("xxx"))
 
 ## Gegeven ```y = input("xxx")``` zet het antwoord om in een decimaal getal/float.
 
 y = float(y)
+
 of
+
 y = float(input("xxx"))
 
 # rekenen
@@ -133,7 +137,9 @@ lijst[x-1] = "y"
 ## Gegeven ```lijst = ["a", "b", "c"]``` geef het laatste element van de lijst. (twijfel)
 
 lijst[2]
+
 of 
+
 lijst[:-1]
 
 ## Gegeven ```lijst = ["a", "b", "c"]``` geef het "x"de tot en met het laatste element van de lijst. (twijfel)
@@ -152,19 +158,25 @@ for i in range(10):
 ## Loop over de getallen van 0 tot en met 10 met een variabele "i".
 
 for i in range(10+1):
+
 of
+
 for i in range(11):
 
 ## Loop over de getallen van 2 tot en met 10 met een variabele "i".
 
 for i in range(2,10+1):
+
 of
+
 for i in range(2,11):
 
 ## Loop over de getallen van 2 tot en met 10 met een variabele "i" in stappen van 2.
 
 for i in range(2,10+1,2):
+
 of
+
 for i in range(2,11,2):
 
 ## Gegeven ```lijst = ["a", "b", "c"]``` geef de lengte van de lijst.
@@ -202,7 +214,9 @@ plt.ylabel("y")
 ## Gegeven ```print("Hello")``` veroorzaak een SyntaxError
 
 print("hello)
+
 of
+
 print("hello"
 
 ## Gegeven ```lijst = ["a", "b", "c"]``` loop over de elmenten van de lijst en veroorzaak een SyntaxError
@@ -216,10 +230,14 @@ for letter in lijst
 
 print(y)
 y = "xxx"
+
 of
+
 y = "xxx"
 print(Y)
+
 of
+
 y = "xxx"
 pint(y)
 
@@ -241,3 +259,74 @@ c = a / b
 a = 1
 b = input("xxx")
 c = a + b
+
+## Gegeven ```lijst = ["a", "b", "c"]``` veroorzaak een TypeError
+
+lijst = ["a", "b", "c"]
+print(lijst[3.0])
+
+## Gegeven ```lijst = ["a", "b", "c"]``` veroorzaak een IndexError
+
+lijst = ["a", "b", "c"]
+print(lijst[3])
+
+of
+
+lijst = ["a", "b", "c"]
+print(lijst[-4])
+
+## Gegeven variabele "y" met als waarde "xxx", print de variabele en veroorzaak een IndexError (twijfel)
+
+y = "xxx"
+print(y[3])
+
+## Gegeven ```a = 1``` veroorzaak een ZeroDivisionError
+
+a = 1
+b = 0
+c = a/b
+
+## Gegeven variabele "x" met als waarde "abc" en variabele "y" met als waarde "def" combineer de waardes en veroorzaak een AttributeError
+
+x = "abc"
+y = "def"
+x.append(y)
+
+## Gegeven ```a = 1``` veroorzaak een AttributeError
+
+a = 1
+print(len(a))
+
+## Gegeven ```import matplotlib.pyplot as plt``` veroorzaak een AttributeError
+
+import matplotlib.pyplot as plt
+
+plt.pyplot()
+
+## Gegeven dat je xxx wil importeren veroorzaak een ImportError
+
+import xx
+
+## Gegeven ```a = 1``` en ```if a > 0:``` print "a is groter dan nul" en veroorzaak een IndentationError
+
+a = 1
+if a > 0:
+print("a is groter dan 0")
+
+## Gegeven ```for i in rang(3)```, print "i" en print "next" en veroorzaak een IndentationError
+
+for i in range(3):
+    print(i)
+        print("next")
+
+of
+
+for i in range(3):
+print(i)
+    print("next")
+
+of
+
+for i in range(3):
+        print(i)
+    print("next")
