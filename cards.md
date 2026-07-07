@@ -330,3 +330,40 @@ of
 for i in range(3):
         print(i)
     print("next")
+
+# Keyboard shortcuts
+## Wat is de shortcut om een uitvoer in de terminal te stoppen?
+
+Ctrl + c
+
+## Wat is de shortcut om meerdere regels code in te springen?
+
+selecteer + tab
+
+## Wat is de shortcut om meerdere regels code terug in te springen?
+
+selecteer + shift + tab
+
+## Wat is de shortcut in Visual Studio Code om een variabele naam op alle plekken aan te passen?
+
+selecteer + F2
+
+## Wat is de shortcut in Visual Studio Code om een regel(s) code omhoog te plaatsen?
+
+selecteer + Alt + pijltje-omhoog
+
+## Wat is de shortcut in Visual Studio Code om een regel(s) code omlaag te plaatsen?
+
+selecteer + Alt + pijltje-omlaag
+
+## Wat is de shortcut in Visual Studio Code om de cursor terug te plaatsen naar de vorige locatie?
+
+Alt + pijltje-links
+
+## Wat is de shortcut in Visual Studio Code om een cursor toe te voegen?
+
+Alt + linkermuis-klik
+
+## Wat is de shortcut in Visual Studio Code om een cursor toe te voegen aan de volgende plek waar de selectie voorkomt?
+
+selecteer + Ctrl + d
