@@ -1,3 +1,75 @@
+# Herhaling sessie 1
+
+## Print de letter: a
+
+print("a")
+
+## Print de zin: Hello world! 
+
+print("Hello world!")
+
+## Print de variabele: name
+
+print(name)
+
+## Maak een variabele name met als waarde Alice
+
+name = "Alice"
+
+## Print "Hello Alice".
+
+>name = "Alice"
+>surname = "Bob"
+
+print("Hello", name)
+
+## Wat is de type van "name"?
+
+>name = "Alice"
+
+string
+
+## Wat is de type van "age"?
+
+>age = 18
+
+integer
+
+## Wat is de type van "age"?
+
+>age = "19"
+
+string
+
+## Wat is de type van "greeting"?
+
+>greeting = "Hello Alice!"
+
+string
+
+## Wat is de type van "age"?
+
+>age = input("How old are you? ")
+
+string
+
+## Wat is de type van "age"?
+
+>age = int(input("How old are you? ))
+
+integer
+
+## Wat is de output als we "Alice" invullen?
+
+>name = input("What is your name? ")
+>print("Hello", name)
+
+Hello Alice
+
+## Maak een if statement die "You won!" print als je score hoger is dan 50 en "You lost!" als hij lager is.
+
+>score = 35
+
 # print
 
 ## Print het woord "Hello!".
