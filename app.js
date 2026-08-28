@@ -16,20 +16,18 @@ let currentIndex = 0;
 let showingFront = true;
 
 let FLASHCARDS = {};
-loadCards();
 
-async function loadCards() {
 
-    const response = await fetch("cards.md");
-    const text = await response.text();
-
-    FLASHCARDS = parseCards(text);
-
-    buildCategoryList();
-}
-
+/**
+ * Parses markdown text for the flash-cards, finds the text and code to be displayed on the
+ * front-side and back-side of the flash-cards, and puts them into a per-catagory dictionary.
+ *
+ * @param   text    Markdown text to be parsed for flash-cards.
+ * @returns Dictionary indexed by the category containing lists of dictionaries containing the
+ *          text for the front-side stored in the key 'front', code for the front-side stored in
+ *          the key 'frontCode', and code for the back-side stored in the key 'back'.
+ */
 function parseCards(text) {
-
     const cards = {};
 
     let currentCategory = null;
@@ -40,7 +38,6 @@ function parseCards(text) {
     const lines = text.split("\n");
 
     function saveCard() {
-
         if (
             currentCategory &&
             currentQuestion &&
@@ -55,9 +52,7 @@ function parseCards(text) {
     }
 
     for (const line of lines) {
-
         if (line.startsWith("# ")) {
-
             saveCard();
 
             currentCategory = line.substring(2).trim();
@@ -69,34 +64,24 @@ function parseCards(text) {
             currentAnswer = [];
 
             continue;
-        }
-
-        if (line.startsWith("## ")) {
-
+        } else if (line.startsWith("## ")) {
             saveCard();
 
             currentQuestion = line.substring(3).trim();
 
             currentQuestionCode = [];
-
             currentAnswer = [];
 
             continue;
         }
 
         if (currentQuestion) {
-
             if (line.startsWith(">")) {
-
                 currentQuestionCode.push(line.substring(1));
                 currentAnswer.push(line.substring(1));
-
             } else {
-
                 currentAnswer.push(line);
-
             }
-
         }
     }
 
@@ -105,8 +90,12 @@ function parseCards(text) {
     return cards;
 }
 
-function buildCategoryList() {
 
+/**
+ * Builds the category list on the webpage according to the keys of the flashcards found from the
+ * markdown file. Creates onclick events for each element to open the respective category.
+ */
+function buildCategoryList() {
     categoryList.innerHTML = "";
 
     Object.keys(FLASHCARDS).forEach(cat => {
@@ -114,13 +103,31 @@ function buildCategoryList() {
         const li = document.createElement("li");
 
         li.textContent = cat;
-
         li.onclick = () => openCategory(cat);
 
         categoryList.appendChild(li);
     });
 }
 
+
+/**
+ * Generate the flash cards and make them visible on the site.
+ */
+async function loadCards() {
+    const response = await fetch("cards.md");
+    const text = await response.text();
+
+    FLASHCARDS = parseCards(text);
+
+    buildCategoryList();
+}
+
+
+/**
+ * Opens the category according to the button which was clicked.
+ *
+ * @param   cat     Category to be opened.
+ */
 function openCategory(cat) {
     currentCategory = cat;
     currentIndex = 0;
@@ -134,15 +141,18 @@ function openCategory(cat) {
     renderCard();
 }
 
+
+/**
+ * Render the current flash card from the current category and index using the previously parsed
+ * data in FLASHCARDS.
+ */
 function renderCard() {
     const data = FLASHCARDS[currentCategory][currentIndex];
 
     cardContent.innerHTML = "";
 
     if (showingFront) {
-
         if (data.frontCode.length > 0) {
-
             const pre_front = document.createElement("pre");
             const code_front = document.createElement("code");
 
@@ -153,7 +163,6 @@ function renderCard() {
             cardContent.appendChild(pre_front);
 
             hljs.highlightElement(code_front);
-
         }
 
         const h3 = document.createElement("h3");
@@ -174,13 +183,19 @@ function renderCard() {
     hljs.highlightElement(code);
 }
 
+
+/**
+ * Flips the current flashcard by rendering the other side.
+ */
 function flipCard() {
     showingFront = !showingFront;
     renderCard();
 }
 
-card.onclick = () => {flipCard()};
 
+/**
+ * Go to the next card by increasing the index and rendering its front-side.
+ */
 function nextCard() {
     const list = FLASHCARDS[currentCategory];
     currentIndex = (currentIndex + 1) % list.length;
@@ -188,6 +203,10 @@ function nextCard() {
     renderCard();
 }
 
+
+/**
+ * Go to the previous card by increasing the index and rendering its back-side.
+ */
 function previousCard() {
     const list = FLASHCARDS[currentCategory];
     currentIndex = (currentIndex - 1 + list.length) % list.length;
@@ -195,19 +214,22 @@ function previousCard() {
     renderCard();
 }
 
-nextBtn.onclick = () => {nextCard()};
 
-prevBtn.onclick = () => {previousCard()};
-
-backBtn.onclick = () => {
+/**
+ * Go back to the categories list.
+ */
+function exitCategory() {
     flashcardView.classList.add("hidden");
     categoriesView.classList.remove("hidden");
-};
+}
 
 
-document.addEventListener("keydown", keyPressHandler);
-
-function keyPressHandler(e) {
+/**
+ * Find which key was pressed in keydown event and change the flashcard accordingly.
+ *
+ * @param   e       keydown event.
+ */
+function keyDownHandler(e) {
     switch (e.key) {
         case "ArrowLeft":
             previousCard();
@@ -221,6 +243,20 @@ function keyPressHandler(e) {
         case "ArrowDown":
             flipCard();
             break;
+        default:
+            break;
     }
 }
 
+
+// add click events to buttons and cards to control the flash cards
+card.onclick = () => {flipCard()};
+nextBtn.onclick = () => {nextCard()};
+prevBtn.onclick = () => {previousCard()};
+backBtn.onclick = () => {exitCategory()};
+
+// add event listener to be able to control the flash cards using the arrow keys
+document.addEventListener("keydown", keyDownHandler);
+
+// load cards into webpage
+loadCards();
