@@ -4,24 +4,19 @@
 
 print("a")
 
-## Print de zin: Hello world! 
+## Maak een variabele name met als waarde Alice
+
+name = "Alice"
+
+## Print de zin: Hello world!
 
 print("Hello world!")
 
 ## Print de variabele: name
 
+>name = "Bob"
+
 print(name)
-
-## Maak een variabele name met als waarde Alice
-
-name = "Alice"
-
-## Print "Hello Alice".
-
->name = "Alice"
->surname = "Bob"
-
-print("Hello", name)
 
 ## Wat is de type van "name"?
 
@@ -31,21 +26,32 @@ string
 
 ## Wat is de type van "age"?
 
->age = 18
-
-integer
-
-## Wat is de type van "age"?
-
 >age = "19"
 
 string
+
+## Print "Hello Alice".
+
+>name_1 = "Alice"
+>name_2 = "Bob"
+
+print("Hello", name_1)
+
+## Wat is de type van "age"?
+
+>age = 18
+
+integer
 
 ## Wat is de type van "greeting"?
 
 >greeting = "Hello Alice!"
 
 string
+
+## Vraag de naam van de gebruiker en sla het op in de variabele "name"
+
+name = input("What is your name? ")
 
 ## Wat is de type van "age"?
 
@@ -59,16 +65,40 @@ string
 
 integer
 
-## Wat is de output als we "Alice" invullen?
+## Maak een if statement die zegt "Access granted!" als het wachtwoord gelijk is aan "MNW".
 
->name = input("What is your name? ")
->print("Hello", name)
+>password = input("What is the password? ")
 
-Hello Alice
+if password == "MNW":
+    print("Access granted!")
 
-## Maak een if statement die "You won!" print als je score hoger is dan 50 en "You lost!" als hij lager is.
+## Maak een if-else statement die "You won!" print als je score hoger of gelijk is aan 50 en "You lost!" als hij lager is.
 
 >score = 35
+
+if score >= 50:
+    print("You won!")
+else:
+    print("You lost!")
+
+## Maak een if statement die zegt "Access denied!" als het wachtwoord niet gelijk is aan "BMC".
+
+>password = input("What is the password? ")
+
+if password != "BMC":
+    print("Access denied!")
+
+## Maak een if-elif-else statement die print "You passed!" als je cijfer boven de 5 is, "You barely failed!" als je cijfer een 4 is en "You failed!" als het onder de 4 is.
+
+>grade = 5
+
+if grade > 5:
+    print("You passed!")
+elif grade == 4:
+    print("You barely failed!")
+else:
+    print("You failed!")
+
 
 # print
 
