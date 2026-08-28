@@ -33,6 +33,7 @@ function parseCards(text) {
     const cards = {};
 
     let currentCategory = null;
+    let currentQuestionCode = [];
     let currentQuestion = null;
     let currentAnswer = [];
 
@@ -45,8 +46,10 @@ function parseCards(text) {
             currentQuestion &&
             currentAnswer.length
         ) {
+            console.log(currentQuestionCode.join("\n"));
             cards[currentCategory].push({
                 front: currentQuestion,
+                frontCode: currentQuestionCode.join("\n"),
                 back: currentAnswer.join("\n")
             });
         }
@@ -62,6 +65,7 @@ function parseCards(text) {
 
             cards[currentCategory] = [];
 
+            currentQuestionCode = [];
             currentQuestion = null;
             currentAnswer = [];
 
@@ -74,13 +78,25 @@ function parseCards(text) {
 
             currentQuestion = line.substring(3).trim();
 
+            currentQuestionCode = [];
+
             currentAnswer = [];
 
             continue;
         }
 
         if (currentQuestion) {
-            currentAnswer.push(line);
+
+            if (line.startsWith(">")) {
+
+                currentQuestionCode.push(line.substring(1));
+
+            } else {
+
+                currentAnswer.push(line);
+
+            }
+            
         }
     }
 
@@ -124,6 +140,22 @@ function renderCard() {
     cardContent.innerHTML = "";
 
     if (showingFront) {
+
+        if (data.frontCode.length > 0) {
+
+            const pre_front = document.createElement("pre");
+            const code_front = document.createElement("code");
+
+            code_front.className = "language-python";
+            code_front.textContent = data.frontCode;
+
+            pre_front.appendChild(code_front);
+            cardContent.appendChild(pre_front);
+
+            hljs.highlightElement(code_front);
+
+        }
+
         const h3 = document.createElement("h3");
         h3.textContent = data.front;
         cardContent.appendChild(h3);
