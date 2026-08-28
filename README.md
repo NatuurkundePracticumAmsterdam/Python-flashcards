@@ -1,6 +1,10 @@
 # Python-flashcards
 Learn basic Python syntax using flashcards. Especially designed for Medical Natural Sciences.
 
+First, select the desired category in the main menu. The flashcards corresponding to that category will then be shown. The flashcards can then be controlled using the arrowkeys or by using the buttons on screen.
+
+Flip the card by pressing up/down or by using the spacebar. Go to the next card by pressing right and go to the previous card by pressing left. To go back to the main menu press escape.
+
 # Content of the flashcards
 The file [cards.md](cards.md) is used to store the content of the flashcards.
 
