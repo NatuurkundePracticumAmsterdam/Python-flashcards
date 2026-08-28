@@ -1,9 +1,9 @@
 # print
 
-## Print het woord "xxx".
+## Print het woord "Hello!".
 
 
-print("xxx")
+print("Hello!")
 
 ## Print de zin "xxx xxx".
 
