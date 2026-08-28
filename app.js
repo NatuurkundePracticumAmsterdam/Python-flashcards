@@ -46,7 +46,6 @@ function parseCards(text) {
             currentQuestion &&
             currentAnswer.length
         ) {
-            console.log(currentQuestionCode.join("\n"));
             cards[currentCategory].push({
                 front: currentQuestion,
                 frontCode: currentQuestionCode.join("\n"),
@@ -175,26 +174,53 @@ function renderCard() {
     hljs.highlightElement(code);
 }
 
-card.onclick = () => {
+function flipCard() {
     showingFront = !showingFront;
     renderCard();
-};
+}
 
-nextBtn.onclick = () => {
+card.onclick = () => {flipCard()};
+
+function nextCard() {
     const list = FLASHCARDS[currentCategory];
     currentIndex = (currentIndex + 1) % list.length;
     showingFront = true;
     renderCard();
-};
+}
 
-prevBtn.onclick = () => {
+function previousCard() {
     const list = FLASHCARDS[currentCategory];
     currentIndex = (currentIndex - 1 + list.length) % list.length;
     showingFront = true;
     renderCard();
-};
+}
+
+nextBtn.onclick = () => {nextCard()};
+
+prevBtn.onclick = () => {previousCard()};
 
 backBtn.onclick = () => {
     flashcardView.classList.add("hidden");
     categoriesView.classList.remove("hidden");
 };
+
+
+document.addEventListener("keydown", keyPressHandler);
+
+function keyPressHandler(e) {
+    switch (e.key) {
+        case "ArrowLeft":
+            previousCard();
+            break;
+        case "ArrowRight":
+            nextCard();
+            break;
+        case "ArrowUp":
+            flipCard();
+            break;
+        case "ArrowDown":
+            flipCard();
+            break;
+    }
+}
+
