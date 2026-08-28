@@ -247,6 +247,9 @@ function keyDownHandler(e) {
         case "ArrowDown":
             flipCard();
             break;
+        case " ":
+            flipCard();
+            break;
         case "Escape":
             exitCategory();
             break;
