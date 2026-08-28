@@ -11,8 +11,11 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const backBtn = document.getElementById("backBtn");
 
+const counter = document.getElementById("counter");
+
 let currentCategory = null;
 let currentIndex = 0;
+let currentCategoryLength = 0;
 let showingFront = true;
 
 let FLASHCARDS = {};
@@ -131,6 +134,7 @@ async function loadCards() {
 function openCategory(cat) {
     currentCategory = cat;
     currentIndex = 0;
+    currentCategoryLength = FLASHCARDS[currentCategory].length;
     showingFront = true;
 
     categoryTitle.textContent = cat;
@@ -147,6 +151,8 @@ function openCategory(cat) {
  * data in FLASHCARDS.
  */
 function renderCard() {
+    counter.innerText = currentIndex+1 + "/" + currentCategoryLength
+
     const data = FLASHCARDS[currentCategory][currentIndex];
 
     cardContent.innerHTML = "";
@@ -197,8 +203,7 @@ function flipCard() {
  * Go to the next card by increasing the index and rendering its front-side.
  */
 function nextCard() {
-    const list = FLASHCARDS[currentCategory];
-    currentIndex = (currentIndex + 1) % list.length;
+    currentIndex = (currentIndex + 1) % currentCategoryLength;
     showingFront = true;
     renderCard();
 }
@@ -208,8 +213,7 @@ function nextCard() {
  * Go to the previous card by increasing the index and rendering its back-side.
  */
 function previousCard() {
-    const list = FLASHCARDS[currentCategory];
-    currentIndex = (currentIndex - 1 + list.length) % list.length;
+    currentIndex = (currentIndex - 1 + currentCategoryLength) % currentCategoryLength;
     showingFront = true;
     renderCard();
 }
