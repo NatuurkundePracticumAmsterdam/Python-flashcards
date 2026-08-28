@@ -1,4 +1,4 @@
-# Herhaling sessie 1
+# Herhaling in sessie 2
 
 ## Print de letter: a
 
@@ -99,6 +99,54 @@ elif grade == 4:
 else:
     print("You failed!")
 
+
+# Herhaling in sessie 4
+
+## Tel deze getallen bij elkaar op en print het resultaat.
+
+>a = 3.2
+>b = 9.7
+
+result = a + b
+print(result)
+
+## Bereken base tot de macht power en print het resultaat.
+
+>base = 3
+>power = 5
+
+result = base**power
+print(result)
+
+## Print de rest (modulo) als je a door b deelt.
+
+>a = 7658
+>b = 10
+
+result = a % b
+print(result)
+
+## Maak een lijst "rainbow" met alle kleuren van de regenboog.
+
+rainbow = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+## Print "Utrecht" uit deze lijst.
+
+>cities = ["Amsterdam", "Rotterdam", "Utrecht", "Haarlem", "Den Haag"]
+
+print(cities[2])
+
+## Voeg "ultra_violet" toe aan de regenboog.
+
+>rainbow = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+rainbow.append("ultra_violet")
+
+## Verander de vierde stad naar "Leiden".
+
+>cities = ["Amsterdam", "Rotterdam", "Utrecht", "Haarlem", "Den Haag"]
+
+cities[3] = "Leiden"
 
 # print
 
