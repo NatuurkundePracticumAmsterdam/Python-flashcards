@@ -90,13 +90,14 @@ function parseCards(text) {
             if (line.startsWith(">")) {
 
                 currentQuestionCode.push(line.substring(1));
+                currentAnswer.push(line.substring(1));
 
             } else {
 
                 currentAnswer.push(line);
 
             }
-            
+
         }
     }
 
