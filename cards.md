@@ -62,14 +62,14 @@ else:
 if password != "BMC":
     print("Access denied!")
 
-## Maak een if-elif-else-statement die zegt "You passed!" als je cijfer boven de 5 is, "You barely failed!" als je cijfer een 4 is en "You failed!" als het onder de 4 is.
->grade = 5
-if grade > 5:
-    print("You passed!")
-elif grade == 4:
-    print("You barely failed!")
+## Maak een if-elif-else-statement die "Excellent" zegt als je cijfer groter of gelijk is aan een 8, "Sufficient" als je cijfer boven een 5 is en "Insufficient" als het een 5 of lager is.
+>grade = 7
+if grade >= 8:
+    print("Excellent")
+elif grade > 5:
+    print("Sufficient")
 else:
-    print("You failed!")
+    print("Insufficient")
 
 
 # Herhaling sessie 4
