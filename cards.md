@@ -42,7 +42,7 @@ name = input("What is your name? ")
 string
 
 ## Wat is het type van "age"?
->age = int(input("How old are you? ))
+>age = int(input("How old are you? "))
 integer
 
 ## Maak een if-statement die zegt "Access granted!" als het wachtwoord gelijk is aan "MNW".
