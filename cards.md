@@ -125,7 +125,7 @@ for i in range(len(names)):
 >mass = float(input("Please enter the person's body mass in kg: "))
 dose = 15 * mass  # mg
 if dose > 500:
-    dose = 500
+    dose = 500  # mg
 
 ## Schrijf een while-loop die intraveneus een medicijn toevoegt tot de infuuszak leeg is, en steeds print hoeveel er nog over is
 >contents = 500  # mL
