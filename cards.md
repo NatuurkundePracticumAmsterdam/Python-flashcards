@@ -107,4 +107,23 @@ rainbow.append("ultra_violet")
 >cities = ["Amsterdam", "Rotterdam", "Utrecht", "Haarlem", "Den Haag"]
 cities[3] = "Leiden"
 
+## Schrijf een for-loop die het kwadraat van ieder getal print
+>numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+># print the square for each number
+># e.g. "The square of 3 is 9"
+for number in numbers:
+    square = number**2
+    print("The square of", number, "is", square)
 
+## Schrijf een for-loop die de volledige groepsindeling print
+>names = ["Alice", "Bob", "Carol", "Dave", "Eve", "Frank"]
+>group = [1, 2, 3, 1, 2, 3]
+># e.g. "Alice is in group 1"
+for i in range(len(names)):
+    print(names[i], "is in group", group[i])
+
+## Bereken de dosering paracetamol (15 mg/kg lichaamsgewicht, maximaal 500 mg paracetamol)
+>mass = float(input("Please enter the person's body mass in kg: "))
+dose = 15 * mass  # mg
+if dose > 500:
+    dose = 500
