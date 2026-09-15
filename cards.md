@@ -131,5 +131,5 @@ if dose > 500:
 >contents = 500  # mL
 >flow_rate = 15  # mL / min
 while contents > 0:
-    contents = contents - flow_rate
     print("There is still", contents, "left in the IV bag")
+    contents = contents - flow_rate
