@@ -126,3 +126,10 @@ for i in range(len(names)):
 dose = 15 * mass  # mg
 if dose > 500:
     dose = 500
+
+## Schrijf een while-loop die intraveneus een medicijn toevoegt tot de infuuszak leeg is, en steeds print hoeveel er nog over is
+>contents = 500  # mL
+>flow_rate = 15  # mL / min
+while contents > 0:
+    contents = contents - flow_rate
+    print("There is still", contents, "left in the IV bag")
