@@ -74,19 +74,19 @@ else:
 
 # Herhaling sessie 4
 
-## Tel deze getallen bij elkaar op en print het resultaat.
+## Tel eerst deze getallen bij elkaar op en print daarna het resultaat.
 >a = 3.2
 >b = 9.7
 result = a + b
 print(result)
 
-## Bereken base tot de macht power en print het resultaat.
+## Bereken eerst base tot de macht power en print daarna het resultaat.
 >base = 3
 >power = 5
 result = base**power
 print(result)
 
-## Print de rest (modulo) als je a door b deelt.
+## Bereken eerst de rest (modulo) als je a door b deelt en print daarna het resultaat.
 >a = 7658
 >b = 10
 result = a % b
@@ -109,7 +109,6 @@ cities[3] = "Leiden"
 
 ## Schrijf een for-loop die het kwadraat van ieder getal print
 >numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-># print the square for each number
 ># e.g. "The square of 3 is 9"
 for number in numbers:
     square = number**2
@@ -122,7 +121,7 @@ for number in numbers:
 for i in range(len(names)):
     print(names[i], "is in group", group[i])
 
-## Bereken de dosering paracetamol (15 mg/kg lichaamsgewicht, maximaal 500 mg paracetamol)
+## Bereken de dosis van medicijn X. De dosis is 15 mg per kg lichaamsgewicht, met een maximale dosis van 500 mg
 >mass = float(input("Please enter the person's body mass in kg: "))
 dose = 15 * mass  # mg
 if dose > 500:
