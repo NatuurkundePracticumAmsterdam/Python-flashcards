@@ -127,7 +127,7 @@ dose = 15 * mass  # mg
 if dose > 500:
     dose = 500  # mg
 
-## Schrijf een while-loop die intraveneus een medicijn toevoegt tot de infuuszak leeg is, en steeds print hoeveel er nog over is
+## Een infuuszak bevat 500 mL vloeistof met medicijn. Via het infuus wordt iedere minuut 15 mL toegediend. Schrijf een while-loop die dit simuleert. Tijdens iedere herhaling wordt geprint hoeveel mL nog in de infuuszak zit, waarna de inhoud verlaagd wordt. Herhaal dit totdat de zak leeg is. 
 >contents = 500  # mL
 >flow_rate = 15  # mL / min
 ># e.g. "There is still 500 mL left in the IV bag"
