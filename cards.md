@@ -130,6 +130,7 @@ if dose > 500:
 ## Schrijf een while-loop die intraveneus een medicijn toevoegt tot de infuuszak leeg is, en steeds print hoeveel er nog over is
 >contents = 500  # mL
 >flow_rate = 15  # mL / min
+># e.g. "There is still 500 mL left in the IV bag"
 while contents > 0:
-    print("There is still", contents, "left in the IV bag")
+    print("There is still", contents, "mL left in the IV bag")
     contents = contents - flow_rate
