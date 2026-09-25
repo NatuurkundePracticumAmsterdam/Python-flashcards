@@ -194,7 +194,7 @@ else:
 >amount = 500  # mg
 >time_step = 0.1  # h
 >decrease_per_step = 40  # mg
-># e.g. "After 0 hours: 500 mg"
+># e.g. "After 0.0 hours: 500 mg"
 while time <= 2:
     print("After", time, "hours:", amount, "mg")
     amount = amount - decrease_per_step
