@@ -135,9 +135,9 @@ while contents > 0:
     print("There is still", contents, "mL left in the IV bag")
     contents = contents - flow_rate
 
-# Herhaling sessie 6
+# Herhaling sessie 7
 
-## Bereken de concentratie in mg/mL en print deze.
+## Bereken eerst de concentratie in mg/mL en print deze daarna.
 >amount = 500  # mg
 >volume = 250  # mL
 concentration = amount / volume
@@ -160,20 +160,22 @@ amounts.append(300)
 for amount in amounts:
     print(amount)
 
-## Schrijf een for-loop die voor ieder tijdstip de bijbehorende hoeveelheid print, bijvoorbeeld: "After 2 hours: 300 mg".
+## Schrijf een for-loop die voor ieder tijdstip de bijbehorende hoeveelheid print.
 >times = [0, 1, 2, 3, 4]
 >amounts = [500, 400, 300, 200, 100]
+># e.g. "After 2 hours: 300 mg"
 for i in range(len(times)):
     print("After", times[i], "hours:", amounts[i], "mg")
 
-## Maak een lege lijst "measurements". Schrijf een for-loop die alle waarden uit "amounts" verdubbeld en aan deze lijst toevoegt.
+## Maak eerst een lege lijst "measurements". Schrijf daarna een for-loop die alle waarden uit "amounts" verdubbeld en aan de lijst "measurements" toevoegt.
 >amounts = [500, 400, 300, 200, 100]
 measurements = []
 for amount in amounts:
-    measurements.append(2 * amount)
+    measurement = 2 * amount
+    measurements.append(measurement)
 
-## Verhoog "amount" met 500 als "time" gelijk is aan "dose_time". Print daarna "amount".
->time = ...
+## Als "time" gelijk is aan "dose_time", verhoog dan "amount" met 500. Print daarna altijd de waarde van "amount".
+>time = 6
 >dose_time = 6
 >amount = 72
 if time == dose_time:
@@ -187,11 +189,12 @@ if amount >= 100 and amount <= 500:
 else:
     print("Outside range")
 
-## Simuleer 2 uur. Verhoog "time" telkens met 0.1 uur, trek per stap `decrease_per_step` af van "amount" en print tijd en hoeveelheid.
+## Simuleer 2 uur. Verhoog "time" telkens met 0.1 uur en trek per stap "decrease_per_step" af van "amount". Print voor elke stap tijd en hoeveelheid.
 >time = 0.0  # h
 >amount = 500  # mg
 >time_step = 0.1  # h
 >decrease_per_step = 40  # mg
+># e.g. "After 0 hours: 500 mg"
 while time <= 2:
     print("After", time, "hours:", amount, "mg")
     amount = amount - decrease_per_step
