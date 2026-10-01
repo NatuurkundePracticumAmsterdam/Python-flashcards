@@ -199,3 +199,62 @@ while time <= 2:
     print("After", time, "hours:", amount, "mg")
     amount = amount - decrease_per_step
     time = time + time_step
+
+# Herhaling sessie 9
+
+## Schrijf een for-loop die voor elke tijd in de lijst de afgelegde afstand print bij een constante snelheid.
+>speed = 12  # m/s
+>seconds = [0, 1, 2, 3, 4, 5]
+># e.g. "After 2 s: 24 m"
+for second in seconds:
+    distance = speed * second
+    print("After", second, "s:", distance, "m")
+
+## Maak eerst een lege lijst "temperatures". Schrijf daarna een for-loop die elke waarde uit "readings" omzet van Celsius naar Kelvin en aan de lijst toevoegt.
+>readings = [0, 10, 20, 30, 40]
+temperatures = []
+for reading in readings:
+    temperature = reading + 273.15
+    temperatures.append(temperature)
+
+## Schrijf een while-loop die een bal simuleert die vanaf 100 m valt. Verlaag de hoogte elke stap met "fall_per_step" en print de hoogte, totdat de bal de grond raakt.
+>height = 100  # m
+>fall_per_step = 15  # m
+># e.g. "Height: 100 m"
+while height > 0:
+    print("Height:", height, "m")
+    height = height - fall_per_step
+
+## Schrijf een while-loop die het aantal bacteriën elke minuut verdubbelt, totdat het aantal boven 1000 komt. Print elke minuut het aantal bacteriën.
+>bacteria = 10
+>minute = 0
+># e.g. "After 0 min: 10 bacteria"
+while bacteria <= 1000:
+    print("After", minute, "min:", bacteria, "bacteria")
+    bacteria = bacteria * 2
+    minute = minute + 1
+
+## Schrijf een functie "to_kelvin" die een temperatuur in Celsius als parameter neemt en deze omgezet naar Kelvin teruggeeft.
+def to_kelvin(celsius):
+    kelvin = celsius + 273.15
+    return kelvin
+
+## Schrijf een functie "kinetic_energy" die massa (kg) en snelheid (m/s) als parameters neemt en de kinetische energie teruggeeft (0.5 * massa * snelheid**2).
+def kinetic_energy(mass, speed):
+    result = 0.5 * mass * speed**2
+    return result
+
+## Schrijf een functie "dose" die gewicht (kg) als parameter neemt en de dosis teruggeeft (15 mg per kg), met een maximum van 500 mg.
+def dose(weight):
+    result = 15 * weight
+    if result > 500:
+        result = 500
+    return result
+
+## Schrijf een functie "average" die een lijst met getallen als parameter neemt en het gemiddelde teruggeeft.
+def average(numbers):
+    total = 0
+    for number in numbers:
+        total = total + number
+    result = total / len(numbers)
+    return result
